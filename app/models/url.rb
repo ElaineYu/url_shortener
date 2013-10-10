@@ -16,9 +16,9 @@ class Url < ActiveRecord::Base
     # an alteration of an object's state
   before_save :create_url
 
-  def create_url(link)
+  def create_url
     #URI("http://foo/bar/baz?search=FooBar").query #=> "search=FooBar"
-    @url_short = URI(link).query
+    url_short = "http://" + (rand.to_s[2..11].to_i).to_s(36)
     #Url.create(:long_url => params[:long_url],:new_short_url => params[:new_short_url] )
   end
 end
